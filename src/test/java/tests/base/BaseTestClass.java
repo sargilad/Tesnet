@@ -1,5 +1,7 @@
 package tests.base;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -19,6 +21,7 @@ public abstract class BaseTestClass {
     public SevenTestUtils sevenTestUtils;
     public PropertyUtils propertyUtils = new PropertyUtils();
     public TablePage tablePage;
+    public ExtentReports extent = new ExtentReports();
 
     @BeforeSuite
     public void beforeSuite() {
@@ -32,6 +35,9 @@ public abstract class BaseTestClass {
         sevenTestUtils = new SevenTestUtils();
         tablePage = new TablePage(webDriver);
 
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
+        extent.attachReporter(htmlReporter);
+
 
 
 
@@ -44,6 +50,8 @@ public abstract class BaseTestClass {
             webDriver.close();
             webDriver.quit();
         }
+
+        extent.flush();
     }
 
 
