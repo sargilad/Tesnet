@@ -4,11 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import tests.utils.PropertyUtils;
-import tests.utils.SevenTestUtils;
-import tests.utils.TestBlocks;
-import tests.utils.WebDriverInstance;
+import tests.utils.*;
 import tests.utils.pages.Main777PageObjects;
+import tests.utils.pages.TablePage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +18,7 @@ public abstract class BaseTestClass {
     public Main777PageObjects main777PageObjects;
     public SevenTestUtils sevenTestUtils;
     public PropertyUtils propertyUtils = new PropertyUtils();
+    public TablePage tablePage;
 
     @BeforeSuite
     public void beforeSuite() {
@@ -31,6 +30,9 @@ public abstract class BaseTestClass {
 
         main777PageObjects = new Main777PageObjects(webDriver);
         sevenTestUtils = new SevenTestUtils();
+        tablePage = new TablePage(webDriver);
+
+
 
 
 

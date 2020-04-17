@@ -2,8 +2,6 @@ package tests.Excercises;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,6 +17,7 @@ public class Exercise2 extends BaseTestClass {
 
     TableUtils tableUtils = new TableUtils();
     Properties testProps;
+    private final int COMPANY_COLUMN = 1, COUNTRY_COLUMN = 3;
 
     @BeforeClass
     public void beforeClass() throws IOException {
@@ -28,11 +27,9 @@ public class Exercise2 extends BaseTestClass {
 
     @Test
     public void getTextFromTable() {
-        WebElement table = webDriver.findElement(By.xpath("//table[@id='customers']"));
-
         Set<String> strings = testProps.stringPropertyNames();
         for (String key : strings) {
-            Assert.assertTrue(tableUtils.verifyTableCellText(table, 1, key, 3, testProps.getProperty(key)));
+            Assert.assertTrue(tableUtils.verifyTableCellText(tablePage.table_customer(), COMPANY_COLUMN, key, COUNTRY_COLUMN, testProps.getProperty(key)));
         }
 
         logger.info("All text in cells match");
@@ -40,10 +37,7 @@ public class Exercise2 extends BaseTestClass {
 
     @Test
     public void getTextFromTable_mismatch() {
-        WebElement table = webDriver.findElement(By.xpath("//table[@id='customers']"));
-
-            Assert.assertFalse(tableUtils.verifyTableCellText(table, 1, "Ernst Handel", 3, testProps.getProperty("invalidText")));
-
+        Assert.assertFalse(tableUtils.verifyTableCellText(tablePage.table_customer(), COMPANY_COLUMN, "Ernst Handel", COUNTRY_COLUMN, testProps.getProperty("invalidText")));
         logger.info("Text in cell mismatch");
     }
 }
