@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import tests.utils.TestBlocks;
 import tests.utils.WebDriverInstance;
 
 import java.util.concurrent.TimeUnit;
@@ -16,10 +17,10 @@ public abstract class BaseTestClass {
 
     @BeforeSuite
     public void beforeSuite() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver_win32/stable/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver_win32/chromedriver.exe");
         webDriver = WebDriverInstance.getInstance().getWebDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(webDriver, 10);
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wait = new WebDriverWait(webDriver, 30);
         testBlocks = new TestBlocks(webDriver, wait);
     }
 
