@@ -3,22 +3,12 @@ package tests.utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public class TableUtils {
     private static final Logger logger = LogManager.getLogger(TableUtils.class);
-
-    WebDriver webDriver;
-
-    public TableUtils(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
-
-    public TableUtils() {
-    }
 
     public String getTableCellText(WebElement table, int searchColumn, String searchText, int returnColumnText) {
         return getTableCellTextByXpath(table, searchColumn, searchText, returnColumnText);
