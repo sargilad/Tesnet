@@ -15,15 +15,15 @@ public class TestBlocks {
     Main777PageObjects main777PageObjects;
 
     public TestBlocks(WebDriver webDriver, WebDriverWait wait) {
-        main777PageObjects = new Main777PageObjects(webDriver);
+        main777PageObjects = new Main777PageObjects(webDriver, wait);
         this.wait = wait;
     }
 
     public void openMainPage(){
         //goto url
         main777PageObjects.gotoMainPage();
-        wait.until(ExpectedConditions.elementToBeClickable(Main777Page.button_langButton_locator));
-        logger.debug("Redirected to login page");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(Main777Page.button_langButton_locator));
+        logger.debug("Redirected to 777 main page");
     }
 
 

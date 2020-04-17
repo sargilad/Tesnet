@@ -27,19 +27,17 @@ public abstract class BaseTestClass {
     public void beforeSuite() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver_win32/stable/chromedriver.exe");
         webDriver = WebDriverInstance.getInstance().getWebDriver();
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wait = new WebDriverWait(webDriver, 30);
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait = new WebDriverWait(webDriver, 10);
         testBlocks = new TestBlocks(webDriver, wait);
 
-        main777PageObjects = new Main777PageObjects(webDriver);
-        sevenTestUtils = new SevenTestUtils();
+        main777PageObjects = new Main777PageObjects(webDriver,wait);
+        sevenTestUtils = new SevenTestUtils(main777PageObjects, webDriver,wait);
         tablePage = new TablePage(webDriver);
 
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
         extent.attachReporter(htmlReporter);
-
-
-
 
 
     }

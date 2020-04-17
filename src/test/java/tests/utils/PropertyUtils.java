@@ -7,9 +7,8 @@ import java.util.Properties;
 
 public class PropertyUtils {
 
-    public Properties getPropertiesData() throws IOException {
+    public Properties getPropertiesData(String propFileName) throws IOException {
         Properties properties = new Properties();
-        String propFileName = "testData.properties";
 
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 
