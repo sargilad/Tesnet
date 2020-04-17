@@ -12,8 +12,33 @@ public class Main777PageObjects {
         main777Page = new Main777Page(webDriver);
     }
 
-    public void gotoPage() {
+    public void gotoMainPage() {
         webDriver.get(Consts.SEVEN_URL);
     }
+
+    //return list of available languages
+    public void getAvailableLanguages(){
+        //mouse over
+
+        //get content of list
+
+
+        //log all available languages
+
+
+    }
+
+
+    public void selectLanguage(){
+
+        //mouse over
+
+        //select language
+
+
+
+    }
+
+
 
 }

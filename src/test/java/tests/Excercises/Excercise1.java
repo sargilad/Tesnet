@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 import tests.base.BaseTestClass;
+import tests.utils.Consts;
 
 public class Excercise1 extends BaseTestClass {
 
@@ -11,7 +12,16 @@ public class Excercise1 extends BaseTestClass {
 
     @Test
     public void languageValidateTest(){
-        testBlocks.getAvailableLanguages();
+        //goto main
+        testBlocks.openMainPage();
+
+        //get available languages
+        main777PageObjects.getAvailableLanguages();
+
+        //validate languages
+        sevenTestUtils.isLangLinkValid();
+
+
 
 
 
