@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import tests.utils.PropertyUtils;
 import tests.utils.SevenTestUtils;
 import tests.utils.TestBlocks;
 import tests.utils.WebDriverInstance;
@@ -18,6 +19,7 @@ public abstract class BaseTestClass {
     public static TestBlocks testBlocks;
     public Main777PageObjects main777PageObjects;
     public SevenTestUtils sevenTestUtils;
+    public PropertyUtils propertyUtils = new PropertyUtils();
 
     @BeforeSuite
     public void beforeSuite() {
@@ -29,6 +31,8 @@ public abstract class BaseTestClass {
 
         main777PageObjects = new Main777PageObjects(webDriver);
         sevenTestUtils = new SevenTestUtils();
+
+
 
     }
 

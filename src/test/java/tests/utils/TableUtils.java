@@ -1,5 +1,7 @@
 package tests.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class TableUtils {
+    private static final Logger logger = LogManager.getLogger(TableUtils.class);
+
     WebDriver webDriver;
 
     public TableUtils(WebDriver webDriver) {
@@ -22,7 +26,14 @@ public class TableUtils {
 
     public boolean verifyTableCellText(WebElement table, int searchColumn, String searchText, int returnColumnText, String expectedText) {
         String cellText = getTableCellText(table, searchColumn, searchText, returnColumnText);
-        return cellText.equals(expectedText);
+        boolean equals = cellText.equals(expectedText);
+        if (!equals) {
+            logger.error("Expected text (" + expectedText + ") from cell does not match actual text (" + cellText + ")");
+        } else {
+            logger.info("Expected text (" + expectedText + ") from cell matches actual text (" + cellText + ")");
+        }
+
+        return equals;
     }
 
     public String getTableCellTextByXpath(WebElement table, int searchColumn, String searchText, int returnColumnText) {
@@ -30,6 +41,9 @@ public class TableUtils {
 
         List<WebElement> tdElements = table.findElements(By.xpath("//tbody[1]/tr/td[" + searchColumn + "]"));
         int row = tdElements.indexOf(tdElement) - 1;
-        return table.findElement(By.xpath("//tbody[1]/tr[" + row + "]/td[" + returnColumnText + "]")).getText();
+        String text = table.findElement(By.xpath("//tbody[1]/tr[" + row + "]/td[" + returnColumnText + "]")).getText();
+        logger.info("Data retrieved from cell by xpath (" + text + ")");
+
+        return text;
     }
 }
