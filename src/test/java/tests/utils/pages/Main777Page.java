@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 public class Main777Page {
     WebDriver webDriver;
     public static By button_langButton_locator = By.xpath("//a[@class='langBUtton']");
+    public static By DROP_DOWN_LANGUAGES_LOCATIOR = By.xpath("//div[@class='langsDropDownMenu']//li");
 
 
     public Main777Page(WebDriver webDriver) {

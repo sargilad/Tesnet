@@ -38,10 +38,10 @@ public class Main777PageObjects {
         mouseOver(main777Page.button_langButton());
 
         //get content of list
-        List<WebElement> elements = webDriver.findElements(By.xpath("//div[@class='langsDropDownMenu']//li"));
+        List<WebElement> langDropDownelements = webDriver.findElements(Main777Page.DROP_DOWN_LANGUAGES_LOCATIOR);
 
         List<String> langList = new ArrayList<String>();
-        for (WebElement element : elements) {
+        for (WebElement element : langDropDownelements) {
             String lang = element.getText();
             logger.info("Available language: " + lang);
             langList.add(lang);
