@@ -1,16 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TestAll">
 
-    <test name="777">
+    <test name="Tesnet">
         <classes>
             <class name="tests.Excercises.Exercise1"/>
-        </classes>
-    </test>
-
-    <test name="tables">
-        <classes>
             <class name="tests.Excercises.Exercise2"/>
         </classes>
     </test>
-
 </suite>
