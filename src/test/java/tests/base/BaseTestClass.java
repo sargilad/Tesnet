@@ -35,7 +35,7 @@ public abstract class BaseTestClass {
         testBlocks = new TestBlocks(webDriver, wait);
 
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
-        extent = ExtentInstance.getInstance().getExtentReport();
+        extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
 
 
