@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tests.base.BaseTestClass;
+import tests.utils.Consts;
 import tests.utils.TableUtils;
 import tests.utils.pages.TablePage;
 
@@ -25,7 +26,7 @@ public class Exercise2 extends BaseTestClass {
     @BeforeClass
     public void beforeClass() throws IOException {
         testProps = propertyUtils.getPropertiesData("TableData.properties");
-        webDriver.get("https://www.w3schools.com/html/html_tables.asp");
+        webDriver.get(Consts.W3SCHOOL_URL);
         tablePage = new TablePage(webDriver);
     }
 

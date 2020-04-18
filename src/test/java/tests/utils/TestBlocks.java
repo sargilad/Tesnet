@@ -19,7 +19,7 @@ public class TestBlocks {
         this.wait = wait;
     }
 
-    public void openMainPage(){
+    public void open777MainPage(){
         //goto url
         main777PageObjects.gotoMainPage();
         wait.until(ExpectedConditions.visibilityOfElementLocated(Main777Page.button_langButton_locator));

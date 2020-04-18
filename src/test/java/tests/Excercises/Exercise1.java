@@ -26,7 +26,7 @@ public class Exercise1 extends BaseTestClass {
         ExtentTest extentTest = extent.createTest("languageValidateTest");
 
         //goto main
-        testBlocks.openMainPage();
+        testBlocks.open777MainPage();
         extentTest.info("opened main page");
 
         //get available languages
