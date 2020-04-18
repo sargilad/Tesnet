@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tests.utils.Consts;
 
@@ -59,8 +58,6 @@ public class Main777PageObjects {
     }
 
     public void mouseOver(WebElement webElement) {
-        webElement.click();
-
         Actions actions = new Actions(webDriver);
         actions.moveToElement(webElement).perform();
     }

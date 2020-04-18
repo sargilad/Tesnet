@@ -10,6 +10,7 @@ import tests.utils.*;
 import tests.utils.pages.Main777PageObjects;
 import tests.utils.pages.TablePage;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTestClass {
@@ -22,6 +23,8 @@ public abstract class BaseTestClass {
     public PropertyUtils propertyUtils = new PropertyUtils();
     public TablePage tablePage;
     public ExtentReports extent = new ExtentReports();
+    public Properties testProps;
+
 
     @BeforeSuite
     public void beforeSuite() {
@@ -32,8 +35,8 @@ public abstract class BaseTestClass {
         wait = new WebDriverWait(webDriver, 10);
         testBlocks = new TestBlocks(webDriver, wait);
 
-        main777PageObjects = new Main777PageObjects(webDriver,wait);
-        sevenTestUtils = new SevenTestUtils(main777PageObjects, webDriver,wait);
+        main777PageObjects = new Main777PageObjects(webDriver, wait);
+        sevenTestUtils = new SevenTestUtils(main777PageObjects, webDriver, wait);
         tablePage = new TablePage(webDriver);
 
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
