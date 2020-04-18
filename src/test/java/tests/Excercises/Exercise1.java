@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tests.base.BaseTestClass;
+import tests.utils.SevenTestUtils;
+import tests.utils.pages.Main777PageObjects;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,6 +16,8 @@ public class Exercise1 extends BaseTestClass {
     @BeforeClass
     public void beforeClass() throws IOException {
         testProps = propertyUtils.getPropertiesData("SevenData.properties");
+        main777PageObjects = new Main777PageObjects(webDriver, wait);
+        sevenTestUtils = new SevenTestUtils(main777PageObjects, webDriver, wait);
     }
 
 
