@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import tests.utils.CommonUtils;
 import tests.utils.Consts;
 
 import java.util.ArrayList;
@@ -18,11 +19,13 @@ public class Main777PageObjects {
     WebDriver webDriver;
     Main777Page main777Page;
     WebDriverWait wait;
+    CommonUtils commonUtils;
 
-    public Main777PageObjects(WebDriver webDriver, WebDriverWait wait) {
+    public Main777PageObjects(WebDriver webDriver, WebDriverWait wait, CommonUtils commonUtils) {
         this.webDriver = webDriver;
         main777Page = new Main777Page(webDriver);
         this.wait = wait;
+        this.commonUtils = commonUtils;
     }
 
     public void gotoMainPage() {
@@ -31,6 +34,7 @@ public class Main777PageObjects {
 
     //return list of available languages
     public List<String> getAvailableLanguages() {
+        commonUtils.waitForPageLoaded();
         mouseOver(main777Page.button_langButton());
 
         //get content of list
@@ -50,6 +54,7 @@ public class Main777PageObjects {
 
 
     public void selectLanguage(String language) {
+        commonUtils.waitForPageLoaded();
         mouseOver(main777Page.button_langButton());
 
         //select language

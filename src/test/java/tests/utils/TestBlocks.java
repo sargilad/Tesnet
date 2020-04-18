@@ -14,8 +14,9 @@ public class TestBlocks {
     WebDriverWait wait;
     Main777PageObjects main777PageObjects;
 
-    public TestBlocks(WebDriver webDriver, WebDriverWait wait) {
-        main777PageObjects = new Main777PageObjects(webDriver, wait);
+
+    public TestBlocks(WebDriver webDriver, WebDriverWait wait, CommonUtils commonUtils) {
+        main777PageObjects = new Main777PageObjects(webDriver, wait, commonUtils);
         this.wait = wait;
     }
 

@@ -23,6 +23,7 @@ public abstract class BaseTestClass {
     public TablePage tablePage;
     public static ExtentReports extent;
     public Properties testProps;
+    public CommonUtils commonUtils;
 
 
     @BeforeTest
@@ -32,7 +33,8 @@ public abstract class BaseTestClass {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(webDriver, 10);
-        testBlocks = new TestBlocks(webDriver, wait);
+        commonUtils = new CommonUtils(webDriver);
+        testBlocks = new TestBlocks(webDriver, wait, commonUtils);
 
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
         extent = new ExtentReports();

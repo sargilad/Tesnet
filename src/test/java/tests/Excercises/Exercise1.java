@@ -16,7 +16,7 @@ public class Exercise1 extends BaseTestClass {
     @BeforeClass
     public void beforeClass() throws IOException {
         testProps = propertyUtils.getPropertiesData("SevenData.properties");
-        main777PageObjects = new Main777PageObjects(webDriver, wait);
+        main777PageObjects = new Main777PageObjects(webDriver, wait, commonUtils);
         sevenTestUtils = new SevenTestUtils(main777PageObjects, webDriver, wait);
     }
 
